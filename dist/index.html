@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustDo - ToDo App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-container">
+            <div class="title">
+                JustDo
+                <span class="material-symbols-outlined" style="font-size: 32px;">
+                    done_all
+                </span>
+            </div>
+            <button class="btn btn-primary">
+                Log In
+            </button>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="sidebar">
+            <ul class="side-nav">
+                <li class="side-item">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span>
+                    Home
+                </li>
+                <li class="side-item">
+                    <span class="material-symbols-outlined">
+                        calendar_view_day
+                    </span>
+                    Today
+                </li>
+                <li class="side-item">
+                    <span class="material-symbols-outlined">
+                        calendar_view_week
+                    </span>
+                    Week
+                </li>
+            </ul>
+            <h2 class="side-title">PROJECTS</h2>
+            <ul class="side-nav projects">
+                <li class="side-item">
+                    <span class="material-symbols-outlined">
+                        task
+                    </span>
+                    Mobile-App
+                </li>
+                <li class="side-item">
+                    <span class="material-symbols-outlined">
+                        task
+                    </span>
+                    Desktop-App
+                </li>
+                <li class="side-item">
+                    <span class="material-symbols-outlined">
+                        task
+                    </span>
+                    Indie-game
+                </li>
+            </ul>
+            <button class="side-item" id="add-project">
+                <span class="material-symbols-outlined">
+                    add_task
+                </span>
+                Add Project
+            </button>
+        </div>
+
+        <div class="main">
+            <div class="main-container">
+                <h1 class="main-title">Home</h1>
+                <div class="add-todo">
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                    Add To-do
+                </div>
+                <div class="todo-list">
+                    <div class="todo todo-high">
+                        <div class="todo-left">
+                            <span class="material-symbols-outlined">
+                                check_box_outline_blank
+                            </span>
+                            <p class="todo-title">Clean your room</p>
+                        </div>
+                        <div class="todo-right">
+                            <button class="todo-desc btn btn-outline">Details</button>
+                            <p class="todo-due">Nov 12</p>
+                            <span class="material-symbols-outlined">
+                                edit
+                            </span>
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </div>
+                    </div>
+                    <div class="todo todo-med todo-done">
+                        <div class="todo-left">
+                            <span class="material-symbols-outlined">
+                                check_box
+                            </span>
+                            <p class="todo-title todo-title-done">Wash your clothes</p>
+                        </div>
+                        <div class="todo-right">
+                            <button class="todo-desc btn btn-outline">Details</button>
+                            <p class="todo-due">Dec 01</p>
+                            <span class="material-symbols-outlined">
+                                edit
+                            </span>
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </div>
+                    </div>
+                    <div class="todo todo-low">
+                        <div class="todo-left">
+                            <span class="material-symbols-outlined">
+                                check_box_outline_blank
+                            </span>
+                            <p class="todo-title">Go for a jog</p>
+                        </div>
+                        <div class="todo-right">
+                            <button class="todo-desc btn btn-outline">Details</button>
+                            <p class="todo-due">Nov 04</p>
+                            <span class="material-symbols-outlined">
+                                edit
+                            </span>
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Created by: <a href="https://github.com/dev-fa">dev-fa</a>
+        <span class="material-symbols-outlined">
+            computer
+        </span>
+    </div>
+
+</body>
+</html>
