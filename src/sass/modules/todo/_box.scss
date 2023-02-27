@@ -1,0 +1,38 @@
+@use '../functions' as f;
+
+.todo-box {
+  width: 100%;
+  max-width: 327px;
+  background-color: #fff;
+  padding: 14px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &--create {
+    margin-bottom: 16px;
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+    // width: 100%;
+    gap: 12px;
+  }
+
+  &__text {
+    font-size: f.rem(12);
+    color: var(--clr-neutral-600);
+    // width: 100%;
+  }
+}
+
+.btn-circle {
+  border-radius: 100%;
+  border: 1px solid var(--clr-neutral-400);
+  background: none;
+  min-width: 20px;
+  min-height: 20px;
+  order: -1;
+}

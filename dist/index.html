@@ -16,7 +16,35 @@
 
 <body>
   <main>
-    <h1>Todo App</h1>
+    <h1 class="sr-only">Todo App</h1>
+    <header class="todo-header">
+      <p class="logo">TODO</p>
+      <div class="icon-container">
+        <img src="./assets/icon-moon.svg" alt="turn on dark mode" class="icon">
+      </div>
+    </header>
+    <div class="todo-box todo-box--create">
+      <form>
+        <label for="todo-create" class="sr-only">Create new todo</label>
+        <div class="todo-box__main">
+          <input type="text" name="todo-create" class="todo-box__text" id="todo-create" minlength="1" maxlength="99"
+            placeholder="Create a new todo...">
+          <button type="submit" aria-label="create" class="todo-box__btn btn-circle"></button>
+        </div>
+      </form>
+    </div>
+    <footer class="todo-footer">
+      <div class="todo-box todo-box--items">
+        <p class="todo-box__stats"><span id="items-left">0</span> items left</p>
+        <p class="todo-box__clear" id="clear">Clear completed</p>
+      </div>
+      <div class="todo-box todo-box--states">
+        <p id="all">All</p>
+        <p id="active">Active</p>
+        <p id="completed">Completed</p>
+      </div>
+    </footer>
+    <p class="instructions">Drag and drop to reorder list</p>
   </main>
   <!-- 
   Todo

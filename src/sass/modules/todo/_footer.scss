@@ -1,0 +1,27 @@
+@use '../functions' as f;
+
+.todo-footer {
+  background-color: var(--clr-neutral-200);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 327px;
+}
+
+.todo-box {
+  &--items,
+  &--states {
+    color: var(--clr-neutral-500);
+    font-size: f.rem(14);
+  }
+
+  &--items {
+    box-shadow: var(--box-shadow-primary);
+  }
+
+  &--states {
+    box-shadow: var(--box-shadow-primary);
+    margin-top: 16px;
+    justify-content: center;
+    gap: 18px;
+  }
+}

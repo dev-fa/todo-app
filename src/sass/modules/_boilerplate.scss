@@ -11,6 +11,22 @@ html {
   padding: 0;
 }
 
+:root {
+  --box-shadow-primary: 0 35px 50px -15px rgba(194, 195, 214, 0.8);
+}
+
+:root,
+.light-theme {
+  --clr-primary: hsl(220, 98%, 61%);
+  --clr-primary-gradient: linear-gradient hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%);
+  --clr-neutral-200: hsl(0, 0%, 98%);
+  --clr-neutral-300: hsl(235, 32%, 92%);
+  --clr-neutral-400: hsl(233, 11%, 84%);
+  --clr-neutral-500: hsl(240, 9%, 61%);
+  --clr-neutral-600: hsl(235, 19%, 35%);
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -18,6 +34,16 @@ body {
 button {
   font-family: inherit;
   border: none;
+}
+
+input {
+  appearance: none;
+  font-family: inherit;
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 .sr-only {
