@@ -17,12 +17,14 @@
 <body>
   <main>
     <h1 class="sr-only">Todo App</h1>
+
     <header class="todo-header">
       <p class="logo">TODO</p>
       <div class="icon-container">
         <img src="./assets/icon-moon.svg" alt="turn on dark mode" class="icon">
       </div>
     </header>
+
     <div class="todo-box todo-box--create">
       <form>
         <label for="todo-create" class="sr-only">Create new todo</label>
@@ -33,6 +35,55 @@
         </div>
       </form>
     </div>
+
+    <div class="todo-box todo-box--first">
+      <div class="todo-box__main">
+        <p class="todo-box__text">Complete Javascript course.</p>
+        <button type="button" aria-label="set complete" class="todo-box__btn btn-circle btn-circle--active"></button>
+      </div>
+      <img src="./assets/icon-cross.svg" class="todo-box__delete" alt="Delete todo">
+    </div>
+
+    <div class="todo-box">
+      <div class="todo-box__main">
+        <p class="todo-box__text">Jog around the park 3x</p>
+        <button type="button" aria-label="set complete" class="todo-box__btn btn-circle"></button>
+      </div>
+      <img src="./assets/icon-cross.svg" class="todo-box__delete" alt="Delete todo">
+    </div>
+
+    <div class="todo-box">
+      <div class="todo-box__main">
+        <p class="todo-box__text">10 minutes meditation.</p>
+        <button type="button" aria-label="set complete" class="todo-box__btn btn-circle"></button>
+      </div>
+      <img src="./assets/icon-cross.svg" class="todo-box__delete" alt="Delete todo">
+    </div>
+
+    <div class="todo-box">
+      <div class="todo-box__main">
+        <p class="todo-box__text">Read for 1 hour</p>
+        <button type="button" aria-label="set complete" class="todo-box__btn btn-circle"></button>
+      </div>
+      <img src="./assets/icon-cross.svg" class="todo-box__delete" alt="Delete todo">
+    </div>
+
+    <div class="todo-box">
+      <div class="todo-box__main">
+        <p class="todo-box__text">Pick up groceries. </p>
+        <button type="button" aria-label="set complete" class="todo-box__btn btn-circle"></button>
+      </div>
+      <img src="./assets/icon-cross.svg" class="todo-box__delete" alt="Delete todo">
+    </div>
+
+    <div class="todo-box">
+      <div class="todo-box__main">
+        <p class="todo-box__text">Complete todo app on Frontend Mentor</p>
+        <button type="button" aria-label="set complete" class="todo-box__btn btn-circle"></button>
+      </div>
+      <img src="./assets/icon-cross.svg" class="todo-box__delete" alt="Delete todo">
+    </div>
+
     <footer class="todo-footer">
       <div class="todo-box todo-box--items">
         <p class="todo-box__stats"><span id="items-left">0</span> items left</p>
@@ -40,25 +91,13 @@
       </div>
       <div class="todo-box todo-box--states">
         <p id="all">All</p>
-        <p id="active">Active</p>
+        <p id="active" class="current-state">Active</p>
         <p id="completed">Completed</p>
       </div>
     </footer>
+
     <p class="instructions">Drag and drop to reorder list</p>
   </main>
-  <!-- 
-  Todo
-
-  *Add dynamic number* items left
-
-  All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list 
-  -->
 </body>
 
 </html>

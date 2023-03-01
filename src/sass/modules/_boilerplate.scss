@@ -15,16 +15,30 @@ html {
   --box-shadow-primary: 0 35px 50px -15px rgba(194, 195, 214, 0.8);
 }
 
+// :root,
+// .light-theme {
+//   --clr-primary: hsl(220, 98%, 61%);
+//   --clr-primary-gradient: linear-gradient(
+//     to bottom right,
+//     hsl(192, 100%, 67%),
+//     hsl(280, 87%, 65%)
+//   );
+//   --clr-neutral-200: hsl(0, 0%, 98%);
+//   --clr-neutral-300: hsl(235, 32%, 92%);
+//   --clr-neutral-400: hsl(233, 11%, 84%);
+//   --clr-neutral-500: hsl(240, 9%, 61%);
+//   --clr-neutral-600: hsl(235, 19%, 35%);
+// }
+
 :root,
-.light-theme {
-  --clr-primary: hsl(220, 98%, 61%);
-  --clr-primary-gradient: linear-gradient hsl(192, 100%, 67%),
-    hsl(280, 87%, 65%);
-  --clr-neutral-200: hsl(0, 0%, 98%);
-  --clr-neutral-300: hsl(235, 32%, 92%);
-  --clr-neutral-400: hsl(233, 11%, 84%);
-  --clr-neutral-500: hsl(240, 9%, 61%);
-  --clr-neutral-600: hsl(235, 19%, 35%);
+.dark-theme {
+  --clr-primary: hsl(235, 21%, 11%);
+  --clr-primary-gradient: hsl(235, 24%, 19%);
+  --clr-neutral-200: hsl(234, 39%, 85%);
+  --clr-neutral-300: hsl(236, 33%, 92%);
+  --clr-neutral-400: hsl(234, 11%, 52%);
+  --clr-neutral-500: hsl(233, 14%, 35%);
+  --clr-neutral-600: hsl(237, 14%, 26%);
 }
 
 body {
@@ -44,6 +58,10 @@ input {
 
 input:focus {
   outline: none;
+}
+
+form {
+  width: 100%;
 }
 
 .sr-only {

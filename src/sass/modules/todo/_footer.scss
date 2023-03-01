@@ -16,6 +16,11 @@
 
   &--items {
     box-shadow: var(--box-shadow-primary);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 20px 20px;
   }
 
   &--states {
@@ -23,5 +28,22 @@
     margin-top: 16px;
     justify-content: center;
     gap: 18px;
+    border-radius: 5px;
+    font-weight: 700;
+
+    & > p:hover {
+      color: var(--clr-neutral-600);
+      cursor: pointer;
+    }
   }
+
+  &__clear:hover {
+    color: var(--clr-neutral-600);
+    cursor: pointer;
+  }
+}
+
+.current-state,
+.current-state:hover {
+  color: var(--clr-primary);
 }

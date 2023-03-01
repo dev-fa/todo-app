@@ -4,33 +4,48 @@
   width: 100%;
   max-width: 327px;
   background-color: #fff;
-  padding: 14px 20px;
-  border-radius: 5px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--clr-neutral-300);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 
   &--create {
     margin-bottom: 16px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  &--first {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  &__delete {
+    width: 12px;
+    height: 12px;
   }
 
   &__main {
     display: flex;
     align-items: center;
-    // width: 100%;
+    width: 100%;
     gap: 12px;
   }
 
   &__text {
     font-size: f.rem(12);
     color: var(--clr-neutral-600);
-    // width: 100%;
+    width: 100%;
+    caret-color: var(--clr-primary);
   }
 }
 
 .btn-circle {
-  border-radius: 100%;
-  border: 1px solid var(--clr-neutral-400);
+  border-radius: 20px;
+  border: 1px solid var(--clr-neutral-300);
   background: none;
   min-width: 20px;
   min-height: 20px;
