@@ -1,0 +1,14 @@
+@use '../../abstracts/' as *;
+
+.todo-logo {
+  color: #fff;
+  font-size: rem(24);
+  font-weight: 700;
+  letter-spacing: 10px;
+}
+
+.todo-instructions {
+  color: var(--clr-text-inactive);
+  font-size: rem(14);
+  font-weight: 400;
+}

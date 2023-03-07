@@ -1,0 +1,22 @@
+.todo-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 540px;
+  width: 100%;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__middle {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bottom {
+    text-align: center;
+  }
+}

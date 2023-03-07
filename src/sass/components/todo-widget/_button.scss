@@ -1,0 +1,52 @@
+.btn-todo {
+  align-items: center;
+  background: var(--clr-todo-box);
+  border-radius: 100%;
+  border: 1px solid var(--clr-outline);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  max-height: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  min-width: 20px;
+
+  &--checked {
+    @extend .btn-todo;
+
+    background-image: var(--clr-check-background);
+    border: none;
+  }
+
+  &:hover {
+    border: none;
+    max-height: 18px;
+    max-width: 18px;
+    min-height: 18px;
+    min-width: 18px;
+  }
+}
+
+.btn-todo-wrapper {
+  align-items: center;
+  background-image: var(--clr-check-background);
+  border-radius: 100%;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  max-height: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  order: -1;
+  overflow: hidden;
+  width: 20px;
+}
+
+.btn-delete {
+  cursor: pointer;
+  fill: var(--clr-cross);
+  height: 12px;
+  margin-left: 12px;
+  width: 12px;
+}
