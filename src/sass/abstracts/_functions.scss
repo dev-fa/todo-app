@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+@function rem($pixel) {
+  // divide pixel by 16 to return rem
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Using px in parameter';
+  }
+}
+
+@function em($pixel) {
+  // divide pixel by 16 to return em
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + em;
+  } @else {
+    @error 'Using px in parameter';
+  }
+}
