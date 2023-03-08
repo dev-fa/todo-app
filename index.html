@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <title>Todo app</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <h1 class="sr-only">Todo App</h1>
+
+    <section class="todo-widget">
+
+      <section class="todo-widget__top">
+        <p class="todo-logo">TODO</p>
+        <img src="./assets/icon-moon.svg" alt="Toggle Dark Mode" id="theme-toggle" data-theme="dark">
+      </section>
+
+      <section class="todo-widget__middle">
+
+        <div class="todo-box--create">
+          <form>
+            <label for="todo-create" class="sr-only">Create new todo</label>
+            <div class="todo-box__main">
+              <input type="text" name="todo-create" class="todo-box__text--inactive" id="todo-create" minlength="1"
+                maxlength="99" placeholder="Create a new todo...">
+              <div class="btn-todo-wrapper">
+                <button type="submit" aria-label="create" class="btn-todo"></button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="todo-box--first">
+          <div class="todo-box__main">
+            <p class="todo-box__text--disabled">Complete online JavaScript course</p>
+            <div class="btn-todo-wrapper">
+              <button type="button" aria-label="Mark as incomplete" class="btn-todo--checked">
+                <img src="./assets/icon-check.svg" alt="checked">
+              </button>
+            </div>
+          </div>
+          <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
+        </div>
+
+        <div class="todo-box">
+          <div class="todo-box__main">
+            <p class="todo-box__text">Jog around the park 3x</p>
+            <div class="btn-todo-wrapper">
+              <button type="button" aria-label="Mark as complete" class="btn-todo"></button>
+            </div>
+          </div>
+          <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
+        </div>
+
+        <div class="todo-box">
+          <div class="todo-box__main">
+            <p class="todo-box__text">10 minutes meditation</p>
+            <div class="btn-todo-wrapper">
+              <button type="button" aria-label="Mark as complete" class="btn-todo"></button>
+            </div>
+          </div>
+          <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
+        </div>
+
+        <div class="todo-box">
+          <div class="todo-box__main">
+            <p class="todo-box__text">Read for 1 hour</p>
+            <div class="btn-todo-wrapper">
+              <button type="button" aria-label="Mark as complete" class="btn-todo"></button>
+            </div>
+          </div>
+          <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
+        </div>
+
+        <div class="todo-box">
+          <div class="todo-box__main">
+            <p class="todo-box__text">Pickup groceries</p>
+            <div class="btn-todo-wrapper">
+              <button type="button" aria-label="Mark as complete" class="btn-todo"></button>
+            </div>
+          </div>
+          <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
+        </div>
+
+        <div class="todo-box">
+          <div class="todo-box__main">
+            <p class="todo-box__text">Completed ToDo App on Frontend Mentor</p>
+            <div class="btn-todo-wrapper">
+              <button type="button" aria-label="Mark as complete" class="btn-todo"></button>
+            </div>
+          </div>
+          <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
+        </div>
+
+        <div class="todo-box--last">
+          <p class="todo-box__text--functions no-hover"><span id="todo-total">5</span> items left</p>
+          <p class="todo-box__text--functions">Clear Completed</p>
+        </div>
+
+        <div class="todo-box--states">
+          <p id="all-todos" class="todo-box__text--active no-hover">All</p>
+          <p id="active-todos">Active</p>
+          <p id="completed-todos">Completed</p>
+        </div>
+
+      </section>
+
+      <section class="todo-widget__bottom">
+        <p class="todo-instructions">Drag and drop to reorder list </p>
+      </section>
+
+    </section>
+
+  </main>
+</body>
+
+</html>
