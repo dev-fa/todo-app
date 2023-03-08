@@ -24,6 +24,7 @@
     }
 
     & input {
+      background-color: inherit;
       caret-color: var(--clr-text-active);
       color: var(--clr-text);
       font-size: rem(12);
@@ -36,6 +37,7 @@
     }
 
     & input:focus {
+      background-color: inherit;
       outline: none;
     }
 

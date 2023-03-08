@@ -3,7 +3,7 @@
 main {
   align-items: center;
   background-color: var(--clr-main-background);
-  background-image: url(./assets/bg-mobile-light.jpg);
+  // background-image: url(./assets/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   display: flex;
@@ -12,7 +12,7 @@ main {
   min-height: inherit;
   padding: 48px 24px;
 
-  @include breakpoint(small) {
-    background-image: url(./assets/bg-desktop-light.jpg);
-  }
+  // @include breakpoint(small) {
+  //   background-image: url(./assets/bg-desktop-light.jpg);
+  // }
 }
