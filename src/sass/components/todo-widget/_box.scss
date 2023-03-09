@@ -9,6 +9,10 @@
   padding: 16px 20px;
   width: 100%;
 
+  @include breakpoint(medium) {
+    padding: 20px 24px;
+  }
+
   &--create {
     @extend .todo-box;
 
@@ -17,6 +21,11 @@
     box-shadow: var(--box-shadow-primary);
     margin-bottom: 16px;
     padding: 14px 20px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 24px;
+      padding: 20px 24px;
+    }
 
     & > form {
       height: 100%;
@@ -30,6 +39,10 @@
       font-size: rem(12);
       height: 100%;
       width: 100%;
+
+      @include breakpoint(medium) {
+        font-size: rem(18);
+      }
     }
 
     & input:hover {
@@ -87,11 +100,19 @@
     align-items: center;
     display: flex;
     gap: 12px;
+
+    @include breakpoint(medium) {
+      gap: 24px;
+    }
   }
 
   &__text {
     color: var(--clr-text);
     font-size: rem(12);
+
+    @include breakpoint(medium) {
+      font-size: rem(18);
+    }
 
     &--active {
       @extend .todo-box__text;
@@ -111,6 +132,10 @@
       @extend .todo-box__text;
 
       color: var(--clr-text-inactive);
+
+      @include breakpoint(medium) {
+        font-size: rem(14);
+      }
     }
 
     &--functions:hover {

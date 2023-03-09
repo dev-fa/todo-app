@@ -46,7 +46,7 @@ export default class UI {
   setBackgroundImage() {
     const main = document.querySelector('main');
     if (document.documentElement.className === 'light') {
-      if (window.innerWidth <= 500) {
+      if (window.innerWidth <= 700) {
         // Mobile
         main.style.backgroundImage = 'url(./assets/bg-mobile-light.jpg)';
         main.style.backgroundRepeat = 'no-repeat';
@@ -58,7 +58,7 @@ export default class UI {
         main.style.backgroundSize = '100% auto';
       }
     } else if (document.documentElement.className === 'dark') {
-      if (window.innerWidth <= 500) {
+      if (window.innerWidth <= 700) {
         // Mobile
         main.style.backgroundImage = 'url(./assets/bg-mobile-dark.jpg)';
         main.style.backgroundRepeat = 'no-repeat';

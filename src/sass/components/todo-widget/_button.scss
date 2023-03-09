@@ -1,3 +1,5 @@
+@use '../../abstracts/' as *;
+
 .btn-todo {
   align-items: center;
   background: var(--clr-todo-box);
@@ -10,6 +12,13 @@
   max-width: 20px;
   min-height: 20px;
   min-width: 20px;
+
+  @include breakpoint(medium) {
+    max-height: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    min-width: 24px;
+  }
 
   &--checked {
     @extend .btn-todo;
@@ -24,6 +33,13 @@
     max-width: 18px;
     min-height: 18px;
     min-width: 18px;
+
+    @include breakpoint(medium) {
+      max-height: 22px;
+      max-width: 22px;
+      min-height: 22px;
+      min-width: 22px;
+    }
   }
 }
 
@@ -38,6 +54,13 @@
   min-width: 20px;
   order: -1;
 
+  @include breakpoint(small) {
+    max-height: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    min-width: 24px;
+  }
+
   &:hover {
     background-image: var(--clr-check-background);
   }
@@ -49,4 +72,16 @@
   height: 12px;
   margin-left: 12px;
   width: 12px;
+
+  @include breakpoint(small) {
+    opacity: 0;
+    height: 18px;
+    margin-left: 24px;
+    width: 18px;
+    transition: opacity 0.1s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

@@ -1,9 +1,15 @@
+@use '../../abstracts/' as *;
+
 .todo-widget {
   display: flex;
   flex-direction: column;
   gap: 40px;
   max-width: 540px;
   width: 100%;
+
+  @include breakpoint(medium) {
+    gap: 48px;
+  }
 
   &__top {
     display: flex;

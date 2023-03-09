@@ -1,3 +1,5 @@
+@use '../abstracts/' as *;
+
 #theme-toggle {
   cursor: pointer;
   fill: #fff;
@@ -5,4 +7,11 @@
   max-width: 20px;
   min-height: 20px;
   min-width: 20px;
+
+  @include breakpoint(medium) {
+    max-height: 26px;
+    max-width: 26px;
+    min-height: 26px;
+    min-width: 26px;
+  }
 }

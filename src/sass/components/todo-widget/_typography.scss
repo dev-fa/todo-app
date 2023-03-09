@@ -5,6 +5,10 @@
   font-size: rem(24);
   font-weight: 700;
   letter-spacing: 10px;
+
+  @include breakpoint(medium) {
+    font-size: rem(40);
+  }
 }
 
 .todo-instructions {
