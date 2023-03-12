@@ -12,6 +12,7 @@ window.onload = () => {
   themeLS.loadThemeStorage();
   themeLS.loadToggle();
   ui.setBackgroundImage();
+  ui.setWidgetBottom();
   ui.makeTodoDraggable();
 };
 
