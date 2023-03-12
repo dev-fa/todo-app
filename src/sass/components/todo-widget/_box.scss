@@ -96,6 +96,20 @@
     }
   }
 
+  &__states {
+    color: var(--clr-text-inactive);
+    display: flex;
+    font-size: rem(14);
+    font-weight: 700;
+    gap: 18px;
+    text-align: center;
+
+    & > p:hover {
+      color: var(--clr-text);
+      cursor: pointer;
+    }
+  }
+
   &__main {
     align-items: center;
     display: flex;

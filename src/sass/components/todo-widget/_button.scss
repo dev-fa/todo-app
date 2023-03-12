@@ -54,7 +54,7 @@
   min-width: 20px;
   order: -1;
 
-  @include breakpoint(small) {
+  @include breakpoint(medium) {
     max-height: 24px;
     max-width: 24px;
     min-height: 24px;
@@ -73,7 +73,7 @@
   margin-left: 12px;
   width: 12px;
 
-  @include breakpoint(small) {
+  @include breakpoint(medium) {
     opacity: 0;
     height: 18px;
     margin-left: 24px;

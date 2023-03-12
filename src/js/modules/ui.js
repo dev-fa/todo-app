@@ -71,4 +71,55 @@ export default class UI {
       }
     }
   }
+
+  setWidgetBottom() {
+    const container = document.querySelector('.todo-widget__middle');
+    if (
+      window.innerWidth > 700 &&
+      container.contains(container.querySelector('.todo-box--states'))
+    ) {
+      // Desktop
+      const last = container.querySelector('.todo-box--last');
+      const states = container.querySelector('.todo-box--states');
+      container.removeChild(states);
+      container.removeChild(last);
+
+      const newBottom = document.createElement('div');
+      newBottom.classList.add('todo-box--last');
+      newBottom.innerHTML = `
+        <p class="todo-box__text--functions no-hover"><span id="todo-total">5</span> items left</p>
+        <div class="todo-box__states">
+          <p id="all-todos" class="todo-box__text--active no-hover">All</p>
+          <p id="active-todos">Active</p>
+          <p id="completed-todos">Completed</p>
+        </div>
+        <p class="todo-box__text--functions">Clear Completed</p>
+      `;
+      container.appendChild(newBottom);
+    } else if (
+      window.innerWidth <= 700 &&
+      !container.contains(container.querySelector('.todo-box--states'))
+    ) {
+      // Mobile
+      const oldLast = document.querySelector('.todo-box--last');
+      container.removeChild(oldLast);
+
+      const newLast = document.createElement('div');
+      newLast.classList.add('todo-box--last');
+      newLast.innerHTML = `
+        <p class="todo-box__text--functions no-hover"><span id="todo-total">5</span> items left</p>
+        <p class="todo-box__text--functions">Clear Completed</p>
+      `;
+
+      const states = document.createElement('div');
+      states.classList.add('todo-box--states');
+      states.innerHTML = `
+        <p id="all-todos" class="todo-box__text--active no-hover">All</p>
+        <p id="active-todos">Active</p>
+        <p id="completed-todos">Completed</p>
+      `;
+      container.appendChild(newLast);
+      container.appendChild(states);
+    }
+  }
 }

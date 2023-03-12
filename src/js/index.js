@@ -16,6 +16,7 @@ window.onload = () => {
 
 window.addEventListener('resize', () => {
   ui.setBackgroundImage();
+  ui.setWidgetBottom();
 });
 
 // Check if theme is changed
