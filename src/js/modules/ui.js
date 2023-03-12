@@ -122,4 +122,48 @@ export default class UI {
       container.appendChild(states);
     }
   }
+
+  static getDragAfterElement(container, y) {
+    const draggableElements = [
+      ...container.querySelectorAll('.draggable:not(.dragging)'),
+    ];
+
+    return draggableElements.reduce(
+      (closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset, element: child };
+        }
+        return closest;
+      },
+      { offset: Number.NEGATIVE_INFINITY }
+    ).element;
+  }
+
+  makeTodoDraggable() {
+    const draggables = document.querySelectorAll('.draggable');
+    const dragContainer = document.getElementById('drag');
+
+    draggables.forEach((draggable) => {
+      draggable.addEventListener('dragstart', () => {
+        draggable.classList.add('dragging');
+      });
+
+      draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging');
+      });
+    });
+
+    dragContainer.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const afterElement = UI.getDragAfterElement(dragContainer, e.clientY);
+      const draggable = document.querySelector('.dragging');
+      if (afterElement == null) {
+        dragContainer.appendChild(draggable);
+      } else {
+        dragContainer.insertBefore(draggable, afterElement);
+      }
+    });
+  }
 }

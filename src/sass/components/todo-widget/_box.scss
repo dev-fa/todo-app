@@ -3,7 +3,8 @@
 .todo-box {
   align-items: center;
   background-color: var(--clr-todo-box);
-  border-top: 1px solid var(--clr-outline);
+  border-bottom: 1px solid var(--clr-outline);
+  cursor: move;
   display: flex;
   justify-content: space-between;
   padding: 16px 20px;
@@ -19,6 +20,7 @@
     border-radius: 5px;
     border: none;
     box-shadow: var(--box-shadow-primary);
+    cursor: default;
     margin-bottom: 16px;
     padding: 14px 20px;
 
@@ -59,19 +61,13 @@
     }
   }
 
-  &--first {
-    @extend .todo-box;
-
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: none;
-  }
-
   &--last {
     @extend .todo-box;
 
+    cursor: default;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    border: none;
     box-shadow: var(--box-shadow-primary);
     padding: 22px 20px;
   }
@@ -83,6 +79,7 @@
     border: none;
     box-shadow: var(--box-shadow-primary);
     color: var(--clr-text-inactive);
+    cursor: default;
     display: flex;
     font-size: rem(14);
     font-weight: 700;
