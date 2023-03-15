@@ -73,6 +73,7 @@ export default class Todo {
         Todo.deleteTodo(todoBoxId);
         Todo.renderAll();
         Todo.setCounter();
+        ui.makeTodoDraggable();
       }
     });
   }
@@ -83,6 +84,7 @@ export default class Todo {
       Todo.deleteCompleted();
       Todo.renderAll();
       Todo.setCounter();
+      ui.makeTodoDraggable();
     });
   }
 
