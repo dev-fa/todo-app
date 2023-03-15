@@ -93,7 +93,7 @@ export default class UI {
           <p id="active-todos">Active</p>
           <p id="completed-todos">Completed</p>
         </div>
-        <p class="todo-box__text--functions">Clear Completed</p>
+        <p class="todo-box__text--functions" id="clear-completed">Clear Completed</p>
       `;
       container.appendChild(newBottom);
     } else if (
@@ -108,7 +108,7 @@ export default class UI {
       newLast.classList.add('todo-box--last');
       newLast.innerHTML = `
         <p class="todo-box__text--functions no-hover"><span id="todo-total">5</span> items left</p>
-        <p class="todo-box__text--functions">Clear Completed</p>
+        <p class="todo-box__text--functions" id="clear-completed">Clear Completed</p>
       `;
 
       const states = document.createElement('div');
@@ -143,7 +143,7 @@ export default class UI {
 
   makeTodoDraggable() {
     const draggables = document.querySelectorAll('.draggable');
-    const dragContainer = document.getElementById('drag');
+    const dragContainer = document.querySelector('[data-drag]');
 
     draggables.forEach((draggable) => {
       draggable.addEventListener('dragstart', () => {

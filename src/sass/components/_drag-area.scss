@@ -1,6 +1,15 @@
-#drag {
-  border-top-right-radius: 5px;
+@use '../abstracts/' as *;
+
+#todo-main {
+  background-color: var(--clr-todo-box);
   border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: var(--box-shadow-primary);
+  min-height: 317px;
   overflow: hidden;
   width: inherit;
+
+  @include breakpoint(medium) {
+    min-height: 388px;
+  }
 }

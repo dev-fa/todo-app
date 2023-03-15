@@ -25,6 +25,10 @@
 
     background-image: var(--clr-check-background);
     border: none;
+
+    & > img {
+      pointer-events: none;
+    }
   }
 
   &:hover {
