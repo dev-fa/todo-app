@@ -24,20 +24,24 @@ export default class Todo {
 
   // Local storage functions
 
+  /* 'dfatda_' is a local storage key prefix. 
+      Its to avoid key variable collisions in local storage. 
+      dfatda = (d)ev-(f)(a) (t)o(d)o (a)pp */
+
   static saveTodoList(list, state) {
     list = JSON.stringify(list);
-    localStorage.setItem('todoList', list);
-    localStorage.setItem('todoListState', state);
+    localStorage.setItem('dfatda_todoList', list);
+    localStorage.setItem('dfatda_todoListState', state);
   }
 
   static getTodoList() {
-    if (localStorage.getItem('todoList') !== null) {
-      const todoListString = localStorage.getItem('todoList');
+    if (localStorage.getItem('dfatda_todoList') !== null) {
+      const todoListString = localStorage.getItem('dfatda_todoList');
       Todo.todoList = JSON.parse(todoListString);
     }
 
-    if (localStorage.getItem('todoListState') !== null) {
-      Todo.todoListState = localStorage.getItem('todoListState');
+    if (localStorage.getItem('dfatda_todoListState') !== null) {
+      Todo.todoListState = localStorage.getItem('dfatda_todoListState');
     }
   }
 
