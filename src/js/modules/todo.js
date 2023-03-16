@@ -19,20 +19,25 @@ export default class Todo {
     { text: 'Star the projects github repository!', completed: false, id: '5' },
   ];
 
+  static todoListState = 'all';
+
   // Initial page load function
   load() {
-    Todo.renderAll();
+    Todo.render();
     Todo.setCounter();
     Todo.setTodo();
     Todo.setCheckButton();
+    Todo.checkStateButtons();
+    Todo.setStatesButton();
     Todo.setDeleteButton();
     Todo.setClearCompleted();
-    ui.makeTodoDraggable();
   }
 
   // Re-add event listener
   checkWidgetBottom() {
     Todo.setClearCompleted();
+    Todo.checkStateButtons();
+    Todo.setStatesButton();
   }
 
   // Add event listeners
@@ -46,9 +51,8 @@ export default class Todo {
         Todo.addNewTask(Todo.newTodoInput.value);
         // eslint-disable-next-line no-unused-expressions
         Todo.newTodoInput.value = null;
-        Todo.renderAll();
+        Todo.render();
         Todo.setCounter();
-        ui.makeTodoDraggable();
       }
     });
   }
@@ -61,7 +65,56 @@ export default class Todo {
       ) {
         const button = e.target;
         Todo.checkTodo(button);
+        Todo.render();
+        Todo.setCounter();
       }
+    });
+  }
+
+  static checkStateButtons() {
+    const all = document.getElementById('all-todos');
+    const active = document.getElementById('active-todos');
+    const completed = document.getElementById('completed-todos');
+
+    if (Todo.todoListState === 'all') {
+      completed.classList.remove(...completed.classList);
+      active.classList.remove(...active.classList);
+      all.classList.add('todo-box__text--active', 'no-hover');
+    } else if (Todo.todoListState === 'active') {
+      all.classList.remove(...all.classList);
+      completed.classList.remove(...completed.classList);
+      active.classList.add('todo-box__text--active', 'no-hover');
+    } else if (Todo.todoListState === 'completed') {
+      all.classList.remove(...all.classList);
+      active.classList.remove(...active.classList);
+      completed.classList.add('todo-box__text--active', 'no-hover');
+    }
+  }
+
+  static setStatesButton() {
+    const all = document.getElementById('all-todos');
+    const active = document.getElementById('active-todos');
+    const completed = document.getElementById('completed-todos');
+
+    all.addEventListener('click', () => {
+      Todo.todoListState = 'all';
+      Todo.checkStateButtons();
+      Todo.render();
+      Todo.setCounter();
+    });
+
+    active.addEventListener('click', () => {
+      Todo.todoListState = 'active';
+      Todo.checkStateButtons();
+      Todo.render();
+      Todo.setCounter();
+    });
+
+    completed.addEventListener('click', () => {
+      Todo.todoListState = 'completed';
+      Todo.checkStateButtons();
+      Todo.render();
+      Todo.setCounter();
     });
   }
 
@@ -71,9 +124,8 @@ export default class Todo {
         const todoBox = e.target.parentElement;
         const todoBoxId = todoBox.dataset.id;
         Todo.deleteTodo(todoBoxId);
-        Todo.renderAll();
+        Todo.render();
         Todo.setCounter();
-        ui.makeTodoDraggable();
       }
     });
   }
@@ -82,9 +134,8 @@ export default class Todo {
     const clearCompletedButton = document.getElementById('clear-completed');
     clearCompletedButton.addEventListener('click', () => {
       Todo.deleteCompleted();
-      Todo.renderAll();
+      Todo.render();
       Todo.setCounter();
-      ui.makeTodoDraggable();
     });
   }
 
@@ -107,39 +158,57 @@ export default class Todo {
     Todo.todoList.push({ text: todoName, completed: false, id });
   }
 
-  static renderAll() {
-    Todo.clearElement(Todo.todoContainer);
-    Todo.todoList.forEach((todo) => {
-      const newTodo = document.createElement('div');
-      newTodo.classList.add('todo-box', 'draggable');
-      newTodo.setAttribute('draggable', 'true');
-      newTodo.setAttribute('data-id', todo.id);
-      if (todo.completed) {
-        newTodo.innerHTML = `
+  static renderElement(todo) {
+    const newTodo = document.createElement('div');
+    newTodo.classList.add('todo-box', 'draggable');
+    newTodo.setAttribute('draggable', 'true');
+    newTodo.setAttribute('data-id', todo.id);
+    if (todo.completed) {
+      newTodo.innerHTML = `
+        <div class="todo-box__main">
+        <p class="todo-box__text--disabled">${todo.text}</p>
+        <div class="btn-todo-wrapper">
+            <button type="button" aria-label="Mark as incomplete" class="btn-todo--checked">
+              <img src="./assets/icon-check.svg" alt="checked">
+            </button>
+        </div>
+        </div>
+        <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
+      `;
+    } else {
+      newTodo.innerHTML = `
           <div class="todo-box__main">
-          <p class="todo-box__text--disabled">${todo.text}</p>
+          <p class="todo-box__text">${todo.text}</p>
           <div class="btn-todo-wrapper">
-              <button type="button" aria-label="Mark as incomplete" class="btn-todo--checked">
-                <img src="./assets/icon-check.svg" alt="checked">
-              </button>
+              <button type="button" aria-label="Mark as complete" class="btn-todo"></button>
           </div>
           </div>
           <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
-        `;
-        Todo.todoContainer.appendChild(newTodo);
-      } else {
-        newTodo.innerHTML = `
-            <div class="todo-box__main">
-            <p class="todo-box__text">${todo.text}</p>
-            <div class="btn-todo-wrapper">
-                <button type="button" aria-label="Mark as complete" class="btn-todo"></button>
-            </div>
-            </div>
-            <img src="./assets/icon-cross.svg" alt="Delete todo" class="btn-delete">
-        `;
-        Todo.todoContainer.appendChild(newTodo);
-      }
-    });
+      `;
+    }
+    Todo.todoContainer.appendChild(newTodo);
+  }
+
+  static render() {
+    Todo.clearElement(Todo.todoContainer);
+    if (Todo.todoListState === 'all') {
+      Todo.todoList.forEach((todo) => {
+        Todo.renderElement(todo);
+      });
+    } else if (Todo.todoListState === 'active') {
+      Todo.todoList
+        .filter((todo) => todo.completed === false)
+        .forEach((todo) => {
+          Todo.renderElement(todo);
+        });
+    } else if (Todo.todoListState === 'completed') {
+      Todo.todoList
+        .filter((todo) => todo.completed)
+        .forEach((todo) => {
+          Todo.renderElement(todo);
+        });
+    }
+    ui.makeTodoDraggable();
   }
 
   static setCounter() {

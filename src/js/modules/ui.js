@@ -89,7 +89,7 @@ export default class UI {
       newBottom.innerHTML = `
         <p class="todo-box__text--functions no-hover"><span id="todo-total">5</span> items left</p>
         <div class="todo-box__states">
-          <p id="all-todos" class="todo-box__text--active no-hover">All</p>
+          <p id="all-todos">All</p>
           <p id="active-todos">Active</p>
           <p id="completed-todos">Completed</p>
         </div>
@@ -114,7 +114,7 @@ export default class UI {
       const states = document.createElement('div');
       states.classList.add('todo-box--states');
       states.innerHTML = `
-        <p id="all-todos" class="todo-box__text--active no-hover">All</p>
+        <p id="all-todos">All</p>
         <p id="active-todos">Active</p>
         <p id="completed-todos">Completed</p>
       `;
