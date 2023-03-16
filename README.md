@@ -14,8 +14,8 @@ a light and dark theme! Todo list is saved to local storage.
 
 ## Screenshots
 
-![Desktop View Light](./todo-app_desktop-light.png 'Desktop Dark')
-![Desktop View Dark](./todo-app_desktop-dark.png 'Desktop Light')
+![Desktop View Light](./todo-app_desktop-light.png 'Desktop Light')
+![Desktop View Dark](./todo-app_desktop-dark.png 'Desktop Dark')
 ![Mobile View](./todo-app_mobile.png 'Mobile')
 
 ## Links
