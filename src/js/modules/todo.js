@@ -1,8 +1,9 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable class-methods-use-this */
 import UI from './ui';
 
 const ui = new UI();
 
-/* eslint-disable class-methods-use-this */
 export default class Todo {
   static newTodoForm = document.querySelector('[data-new-todo-form]');
 
@@ -21,8 +22,33 @@ export default class Todo {
 
   static todoListState = 'all';
 
+  // Local storage functions
+
+  static saveTodoList(list, state) {
+    list = JSON.stringify(list);
+    localStorage.setItem('todoList', list);
+    localStorage.setItem('todoListState', state);
+  }
+
+  static getTodoList() {
+    if (localStorage.getItem('todoList') !== null) {
+      const todoListString = localStorage.getItem('todoList');
+      Todo.todoList = JSON.parse(todoListString);
+    }
+
+    if (localStorage.getItem('todoListState') !== null) {
+      Todo.todoListState = localStorage.getItem('todoListState');
+    }
+  }
+
+  static saveAndGet(list, state) {
+    Todo.saveTodoList(list, state);
+    Todo.getTodoList();
+  }
+
   // Initial page load function
   load() {
+    Todo.getTodoList();
     Todo.render();
     Todo.setCounter();
     Todo.setTodo();
@@ -49,7 +75,6 @@ export default class Todo {
         !(Todo.newTodoInput.value == null || Todo.newTodoInput.value === '')
       ) {
         Todo.addNewTask(Todo.newTodoInput.value);
-        // eslint-disable-next-line no-unused-expressions
         Todo.newTodoInput.value = null;
         Todo.render();
         Todo.setCounter();
@@ -98,6 +123,7 @@ export default class Todo {
 
     all.addEventListener('click', () => {
       Todo.todoListState = 'all';
+      Todo.saveAndGet(Todo.todoList, Todo.todoListState);
       Todo.checkStateButtons();
       Todo.render();
       Todo.setCounter();
@@ -105,6 +131,7 @@ export default class Todo {
 
     active.addEventListener('click', () => {
       Todo.todoListState = 'active';
+      Todo.saveAndGet(Todo.todoList, Todo.todoListState);
       Todo.checkStateButtons();
       Todo.render();
       Todo.setCounter();
@@ -112,6 +139,7 @@ export default class Todo {
 
     completed.addEventListener('click', () => {
       Todo.todoListState = 'completed';
+      Todo.saveAndGet(Todo.todoList, Todo.todoListState);
       Todo.checkStateButtons();
       Todo.render();
       Todo.setCounter();
@@ -156,6 +184,7 @@ export default class Todo {
   static addNewTask(todoName) {
     const id = Todo.generateId();
     Todo.todoList.push({ text: todoName, completed: false, id });
+    Todo.saveAndGet(Todo.todoList, Todo.todoListState);
   }
 
   static renderElement(todo) {
@@ -216,7 +245,6 @@ export default class Todo {
 
     const totalValue = Todo.todoList.reduce((accumulator, todo) => {
       if (!todo.completed) {
-        // eslint-disable-next-line no-param-reassign
         accumulator += 1;
         return accumulator;
       }
@@ -255,18 +283,20 @@ export default class Todo {
   static setCompletion(id, checked) {
     Todo.todoList.forEach((todoObj) => {
       if (todoObj.id === id) {
-        // eslint-disable-next-line no-param-reassign
         todoObj.completed = checked;
       }
     });
     Todo.setCounter();
+    Todo.saveAndGet(Todo.todoList, Todo.todoListState);
   }
 
   static deleteTodo(id) {
     Todo.todoList = Todo.todoList.filter((todo) => todo.id !== id);
+    Todo.saveAndGet(Todo.todoList, Todo.todoListState);
   }
 
   static deleteCompleted() {
     Todo.todoList = Todo.todoList.filter((todo) => !todo.completed);
+    Todo.saveAndGet(Todo.todoList, Todo.todoListState);
   }
 }
