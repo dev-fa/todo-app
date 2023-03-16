@@ -17,16 +17,24 @@ export default class ThemeLocalStorage {
   }
 
   static setTheme() {
-    const activeTheme = localStorage.getItem('theme');
-    document.documentElement.className = activeTheme;
+    if (localStorage.getItem('theme') === null) {
+      localStorage.setItem('theme', 'light');
+      const activeTheme = localStorage.getItem('theme');
+      document.documentElement.className = activeTheme;
+    } else {
+      const activeTheme = localStorage.getItem('theme');
+      document.documentElement.className = activeTheme;
+    }
   }
 
   static setToggle() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    const toggleObjStr = localStorage.getItem('toggle');
-    const toggleObj = JSON.parse(toggleObjStr);
-    toggleBtn.src = toggleObj.src;
-    toggleBtn.setAttribute('alt', toggleObj.alt);
-    toggleBtn.dataset.theme = toggleObj.theme;
+    if (localStorage.getItem('toggle') !== null) {
+      const toggleBtn = document.getElementById('theme-toggle');
+      const toggleObjStr = localStorage.getItem('toggle');
+      const toggleObj = JSON.parse(toggleObjStr);
+      toggleBtn.src = toggleObj.src;
+      toggleBtn.setAttribute('alt', toggleObj.alt);
+      toggleBtn.dataset.theme = toggleObj.theme;
+    }
   }
 }
