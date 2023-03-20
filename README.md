@@ -1,4 +1,4 @@
-# Project Title
+# Todo App
 
 A todo app made with vanilla javascript. Fully responsive and with
 a light and dark theme! Todo list is saved to local storage.
